@@ -224,16 +224,16 @@ public class Analisis {
                             hoyT[3].setTempMin(maxima);
                         }
                         if (xpp.getName().equals("dato")&& dentrohoy && dentroTemp && periodo.equals("06")) {
-                            hoyT[0].setTemp(xpp.nextText());
+                            hoyT[0].setTemp("Hace " +xpp.nextText());
                         }
                         if (xpp.getName().equals("dato")&& dentrohoy && dentroTemp && periodo.equals("12")) {
-                            hoyT[1].setTemp(xpp.nextText());
+                            hoyT[1].setTemp("Habrá " +xpp.nextText());
                         }
                         if (xpp.getName().equals("dato")&& dentrohoy && dentroTemp && periodo.equals("18")) {
-                            hoyT[2].setTemp(xpp.nextText());
+                            hoyT[2].setTemp("Habrá " +xpp.nextText());
                         }
                         if (xpp.getName().equals("dato")&& dentrohoy && dentroTemp && periodo.equals("24")) {
-                            hoyT[3].setTemp(xpp.nextText());
+                            hoyT[3].setTemp("Habrá " +xpp.nextText());
                         }
                         
                     }
@@ -286,13 +286,13 @@ public class Analisis {
                             hoyT[3].setTempMin(minima);
                         }
                         if (xpp.getName().equals("dato")&& dentrohoy && dentroTemp && periodo.equals("12")) {
-                            hoyT[1].setTemp(xpp.nextText());
+                            hoyT[1].setTemp("Hace " +xpp.nextText());
                         }
                         if (xpp.getName().equals("dato")&& dentrohoy && dentroTemp && periodo.equals("18")) {
-                            hoyT[2].setTemp(xpp.nextText());
+                            hoyT[2].setTemp("Habrá " +xpp.nextText());
                         }
                         if (xpp.getName().equals("dato")&& dentrohoy && dentroTemp && periodo.equals("24") ){
-                            hoyT[3].setTemp(xpp.nextText());
+                            hoyT[3].setTemp("Habrá " + xpp.nextText());
                         }
                     }
                     //3º intervalo
@@ -334,10 +334,10 @@ public class Analisis {
                             hoyT[3].setTempMin(min);
                         }
                         if (xpp.getName().equals("dato")&& dentrohoy && dentroTemp && periodo.equals("18")) {
-                            hoyT[2].setTemp(xpp.nextText());
+                            hoyT[2].setTemp("Hace " +xpp.nextText());
                         }
                         if (xpp.getName().equals("dato")&& dentrohoy && dentroTemp && periodo.equals("24")) {
-                            hoyT[3].setTemp(xpp.nextText());
+                            hoyT[3].setTemp("Habrá " +xpp.nextText());
                         }
                     }
                     //4º intervalo
@@ -367,7 +367,7 @@ public class Analisis {
                             hoyT[3].setTempMin(xpp.nextText());
                         }
                         if (xpp.getName().equals("dato")&& dentrohoy && dentroTemp && periodo.equals("24")) {
-                            hoyT[3].setTemp(xpp.nextText());
+                            hoyT[3].setTemp("Hace " +xpp.nextText());
                         }
                     }
                     
@@ -435,16 +435,16 @@ public class Analisis {
                             manianaT[3].setTempMin(minima);
                         }
                         if (xpp.getName().equals("dato")&& dentromaniana && dentroTemp && periodo.equals("06")) {
-                            manianaT[0].setTemp(xpp.nextText());
+                            manianaT[0].setTemp("Habrá " +xpp.nextText());
                         }
                         if (xpp.getName().equals("dato")&& dentromaniana && dentroTemp && periodo.equals("12")) {
-                            manianaT[1].setTemp(xpp.nextText());
+                            manianaT[1].setTemp("Habrá " + xpp.nextText());
                         }
                         if (xpp.getName().equals("dato")&& dentromaniana && dentroTemp && periodo.equals( "18")) {
-                            manianaT[2].setTemp(xpp.nextText());
+                            manianaT[2].setTemp("Habrá " +xpp.nextText());
                         }
                         if (xpp.getName().equals("dato")&& dentromaniana && dentroTemp && periodo.equals("24") ){
-                            manianaT[3].setTemp(xpp.nextText());
+                            manianaT[3].setTemp("Habrá " +xpp.nextText());
                         }
 
                     }

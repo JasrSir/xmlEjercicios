@@ -60,7 +60,7 @@ public class AdapterWeather extends ArrayAdapter<Weather> {
         // Asignamos los datos del adapter a los widgets
             Picasso.with(mcontext).load(Uri.parse(getItem(position).getImagen())).into(cardViewHolder.mImageTiempo);
 
-        cardViewHolder.mTxvTemp.setText("Ahora hace " + getItem(position).getTemp() +"\n"+ getItem(position).getTempMax() +"\n"+ getItem(position).getTempMin());
+        cardViewHolder.mTxvTemp.setText(getItem(position).getTemp() +"\n"+ getItem(position).getTempMax() +"\n"+ getItem(position).getTempMin());
         cardViewHolder.mTxvPreci.setText(getItem(position).getPrecipiacion());
         cardViewHolder.mTxvdiaEstado.setText(getItem(position).getPeriodo() +"\n" + getItem(position).getEstadoCielo());
         return item;
