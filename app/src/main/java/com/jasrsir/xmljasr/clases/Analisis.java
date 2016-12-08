@@ -536,34 +536,46 @@ public class Analisis {
 
         return estaciones;
     }
+    public static ArrayList<Noticia> analizarNoticias(File file) throws IOException, XmlPullParserException {
+        int eventType;
 
-    /**public static void crearXML(ArrayList<Noticia> noticias, String fichero) throws IOException {
-        FileOutputStream fout;
-        fout = new FileOutputStream(new File(Environment.getExternalStorageDirectory().getAbsolutePath(), fichero));
-        XmlSerializer serializer = Xml.newSerializer();
-        serializer.setOutput(fout, "UTF-8");
-        serializer.startDocument(null, true);
-        serializer.setFeature("http://xmlpull.org/v1/doc/features.html#indent-output", true); //poner tabulación
-        serializer.startTag(null, "titulares");
-        for (int i = 0; i < noticias.size(); i++) {
+        ArrayList<Noticia> noticias = new ArrayList<>();
 
-            serializer.startTag(null,"item");
-            serializer.startTag(null,"titulo");
-            serializer.attribute(null,"fecha",noticias.get(i).getPubDate().toString());
-            serializer.text(noticias.get(i).getTitle().toString());
-            serializer.endTag(null,"titulo");
-            serializer.startTag(null,"enlace");
-            serializer.text(noticias.get(i).getLink().toString());
-            serializer.endTag(null,"enlace");
-            serializer.startTag(null,"descripcion");
-            serializer.text(noticias.get(i).getDescription().toString());
-            serializer.endTag(null,"descripcion");
-            serializer.endTag(null,"item");
+        boolean dentroItem = false;
+        Noticia noticiaAct = null;
+        XmlPullParser xpp = Xml.newPullParser();
+        xpp.setInput(new FileReader(file));
+        eventType = xpp.getEventType();
+
+        while (eventType != XmlPullParser.END_DOCUMENT) {
+
+            switch (eventType) {
+
+                case XmlPullParser.START_TAG:
+
+                    if (xpp.getName().equals("item")) {
+                        dentroItem = true;
+                        noticiaAct = new Noticia();
+                    }
+                    if (xpp.getName().equals("link") && dentroItem)
+                        noticiaAct.setUri(xpp.nextText());
+                    if (xpp.getName().equals("title") && dentroItem)
+                        noticiaAct.setTitle(xpp.nextText());
+                    break;
+
+                case XmlPullParser.END_TAG:
+                    if (xpp.getName().equals("item")) {
+                        dentroItem = false;
+                        noticias.add(noticiaAct);
+                        noticiaAct = null;
+
+                    }
+                    break;
+            }
+            eventType = xpp.next();
         }
-        serializer.endTag(null, "titulares");
-        serializer.endDocument();
-        serializer.flush();
-        fout.close();
-    }*/
+
+        return noticias;
+    }
 
     }

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_noticias_rss"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.jasrsir.xmljasr.NoticiasRSS_Activity">
+    <TextView
+        android:text="Portales de noticias disponibles"
+        android:layout_width="match_parent"
+        android:textStyle="bold"
+        android:textSize="20dp"
+        android:layout_margin="@dimen/activity_horizontal_margin"
+        android:layout_marginBottom="10dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/Noticiarios" />
+
+    <ListView
+        android:layout_width="match_parent"
+        android:id="@android:id/list"
+        android:layout_below="@id/Noticiarios"
+        android:background="#c9c7c7"
+        android:layout_height="match_parent" />
+</RelativeLayout>
