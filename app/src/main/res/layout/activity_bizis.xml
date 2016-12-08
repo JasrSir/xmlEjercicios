@@ -9,7 +9,6 @@
 
     <ListView
         android:layout_width="match_parent"
-        android:layout_below="@id/btnWeather"
         android:id="@+id/listviewBizis"
         android:background="#c9c7c7"
         android:paddingLeft="@dimen/activity_horizontal_margin"
