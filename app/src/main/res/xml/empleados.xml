@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<empleados>
+    <empleado>
+        <nombre>Periquito Péres</nombre>
+        <puesto>Becario</puesto>
+        <edad>25</edad>
+        <sueldo>1200.54</sueldo>
+    </empleado>
+    <empleado>
+        <nombre>María gonzalez</nombre>
+        <puesto>Secretaria</puesto>
+        <edad>32</edad>
+        <sueldo>850.14</sueldo>
+    </empleado>
+    <empleado>
+        <nombre>Lolo Rodriguez</nombre>
+        <puesto>Jefe de departamento</puesto>
+        <edad>35</edad>
+        <sueldo>1500.77</sueldo>
+    </empleado>
+    <empleado>
+        <nombre>Alejandro Alfa</nombre>
+        <puesto>Hijo del Presidente</puesto>
+        <edad>27</edad>
+        <sueldo>2400.87</sueldo>
+    </empleado>
+    <empleado>
+        <nombre>María Pañales</nombre>
+        <puesto>Limpiadora</puesto>
+        <edad>34</edad>
+        <sueldo>450.89</sueldo>
+    </empleado>
+    <empleado>
+        <nombre>Pocholo Barberá</nombre>
+        <puesto>Presidente</puesto>
+        <edad>60</edad>
+        <sueldo>1754.76</sueldo>
+    </empleado>
+</empleados>
