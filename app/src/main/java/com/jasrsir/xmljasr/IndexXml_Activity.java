@@ -22,6 +22,7 @@ public class IndexXml_Activity extends AppCompatActivity {
                 startActivity(new Intent(IndexXml_Activity.this, Weather_Activity.class));
                 break;
             case R.id.btnBicis:
+                startActivity(new Intent(IndexXml_Activity.this,Bizis_Activity.class));
                 break;
             case R.id.btnNoticias:
                 break;

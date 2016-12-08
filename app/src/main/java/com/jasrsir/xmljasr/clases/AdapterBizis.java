@@ -11,25 +11,21 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.jasrsir.xmljasr.R;
-import com.squareup.picasso.Picasso;
 
-import java.io.IOException;
 import java.util.List;
 
 /**
  * Created by jasrsir on 7/12/16.
  */
 
-public class AdapterWeather extends ArrayAdapter<Weather> {
+public class AdapterBizis extends ArrayAdapter<Bizi> {
 
     private Context mcontext;
 
     //Class to content a view
     class CardViewHolder {
-        ImageView mImageTiempo;
-        TextView mTxvTemp;
-        TextView mTxvPreci;
-        TextView mTxvdiaEstado;
+        TextView mTxvNombreEstacion;
+
     }
     @NonNull
     @Override
@@ -44,31 +40,22 @@ public class AdapterWeather extends ArrayAdapter<Weather> {
             //Creamos un objeto inflater que inicializamos al LayoutInflater del contexto
             LayoutInflater inflater = (LayoutInflater) getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             // Inflar la vista, crear en memoria el objeto VIew   que contiene los widgets del XML
-            item = inflater.inflate(R.layout.card_weather, null);
+            item = inflater.inflate(R.layout.card_bizis_estacion, null);
             cardViewHolder = new CardViewHolder();
 
-            // Asignamos a las vbariables los widgets mediante el metodo findViewById
-            cardViewHolder.mImageTiempo = (ImageView) item.findViewById(R.id.iconoTiempo);
-            cardViewHolder.mTxvTemp = (TextView) item.findViewById(R.id.txvTempyMaxMin);
-            cardViewHolder.mTxvPreci = (TextView) item.findViewById(R.id.txvPrecip);
-            cardViewHolder.mTxvdiaEstado = (TextView) item.findViewById(R.id.txvIntervalo);
-
-
+            cardViewHolder.mTxvNombreEstacion = (TextView) item.findViewById(R.id.txvNombreEstacion);
             item.setTag(cardViewHolder);
         } else
             cardViewHolder = (CardViewHolder)item.getTag();
         // Asignamos los datos del adapter a los widgets
-            Picasso.with(mcontext).load(Uri.parse(getItem(position).getImagen())).into(cardViewHolder.mImageTiempo);
-
-        cardViewHolder.mTxvTemp.setText("Ahora hace " + getItem(position).getTemp() +"\n"+ getItem(position).getTempMax() +"\n"+ getItem(position).getTempMin());
-        cardViewHolder.mTxvPreci.setText(getItem(position).getPrecipiacion());
-        cardViewHolder.mTxvdiaEstado.setText(getItem(position).getPeriodo() +"\n" + getItem(position).getEstadoCielo());
+        cardViewHolder.mTxvNombreEstacion.setText(getItem(position).getTitle());
         return item;
     }
 
-    public AdapterWeather(Context context, List<Weather> tiempo) {
-        super(context, R.layout.card_weather, tiempo);
+    public AdapterBizis(Context context, List<Bizi> estaciones) {
+        super(context, R.layout.card_bizis_estacion, estaciones);
         this.mcontext = context;
     }
+
 }
 

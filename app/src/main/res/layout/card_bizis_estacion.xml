@@ -4,6 +4,7 @@
     android:layout_width="match_parent"
     android:id="@+id/cardbizisEstacion"
     android:layout_margin="@dimen/activity_horizontal_margin"
+    android:padding="16dp"
     android:layout_height="wrap_content">
 
     <RelativeLayout
@@ -16,7 +17,6 @@
             android:layout_width="match_parent"
             android:textStyle="bold"
             android:textSize="18dp"
-            android:layout_marginBottom="10dp"
             android:layout_height="wrap_content"
             android:id="@+id/txvNombreEstacion" />
 

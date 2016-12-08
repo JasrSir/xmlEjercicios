@@ -22,7 +22,7 @@ public class Weather {
     }
 
     public void setPeriodo(String periodo) {
-        this.periodo = "Hoy de " + periodo + " h";
+        this.periodo = periodo + " h";
     }
 
     public String getPrecipiacion() {

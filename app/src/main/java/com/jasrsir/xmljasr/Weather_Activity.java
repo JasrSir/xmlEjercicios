@@ -28,12 +28,12 @@ import java.util.ArrayList;
 
 import cz.msebera.android.httpclient.Header;
 
+import static android.R.id.list;
+
 public class Weather_Activity extends ListActivity {
     static ProgressDialog progreso;
     public static final String TIEMPO = "http://www.aemet.es/xml/municipios/localidad_29067.xml";
     public static final String FICHEROTIEMPO = "eltiempo.xml";
-    ListView listaTiempo;
-    Analisis analisis;
     ArrayList<Weather> arrayTiempo;
     ArrayAdapter<Weather> adapterTiempo;
 
@@ -42,16 +42,11 @@ public class Weather_Activity extends ListActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_weather);
 
-        analisis = new Analisis(getApplicationContext());
         progreso = new ProgressDialog(this);
-        listaTiempo = (ListView) findViewById(R.id.listview);
-
-
     }
 
     public void onClickTiempo(View v) {
             descarga(TIEMPO,FICHEROTIEMPO);
-        progreso.dismiss();
     }
 
     private void descarga(final String tiempo, String ficheronew) {
@@ -80,8 +75,9 @@ public class Weather_Activity extends ListActivity {
                             tiempodefinitivo.add(arrayTiempo.get(i));
                     }
                     mostrar(tiempodefinitivo);
+                    progreso.dismiss();
                 } catch (XmlPullParserException e) {
-                    Toast.makeText(Weather_Activity.this,"Excepción XML:"+e.getLineNumber(),Toast.LENGTH_SHORT);
+                    Toast.makeText(Weather_Activity.this,"Excepción XML:"+e.getLineNumber(),Toast.LENGTH_LONG);
                     progreso.dismiss();
                 } catch (IOException e) {
                     e.printStackTrace();
@@ -101,7 +97,8 @@ public class Weather_Activity extends ListActivity {
     }
     private void mostrar(ArrayList<Weather> tiempo) {
         if (tiempo != null) {
-            adapterTiempo = new AdapterWeather(this, arrayTiempo);
+            adapterTiempo = new AdapterWeather(this, tiempo);
+            getListView().setDividerHeight(20);
             getListView().setAdapter(adapterTiempo);
         } else
             Toast.makeText(getApplicationContext(), "Error al crear la lista", Toast.LENGTH_SHORT).show();

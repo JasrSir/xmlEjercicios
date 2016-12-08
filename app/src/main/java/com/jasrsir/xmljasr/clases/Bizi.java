@@ -8,8 +8,11 @@ public class Bizi {
     private String id;
     private String title;
     private String estado;
+    private String uri;
     private String bicisDisponibles;
     private String anclajesDisponibles;
+    private String lastUpdate;
+
 
     public String getId() {
         return id;
@@ -49,5 +52,21 @@ public class Bizi {
 
     public void setAnclajesDisponibles(String anclajesDisponibles) {
         this.anclajesDisponibles = anclajesDisponibles;
+    }
+
+    public String getUri() {
+        return uri;
+    }
+
+    public void setUri(String uri) {
+        this.uri = uri;
+    }
+
+    public String getLastUpdate() {
+        return lastUpdate;
+    }
+
+    public void setLastUpdate(String lastUpdate) {
+        this.lastUpdate = lastUpdate;
     }
 }

@@ -6,6 +6,7 @@ import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -38,6 +39,7 @@ public class Empleados_Activity extends AppCompatActivity {
     public void onClickEmpleado(View v) {
         try {
             actualizar(Analisis.analizarEmpleados(getResources().getXml(R.xml.empleados)));
+            ((Button)findViewById(R.id.btnEmpleados)).setEnabled(false);
         } catch (XmlPullParserException e) {
             Snackbar.make(findViewById(R.id.cardEmpleados),"Error : " + e.getMessage(),Snackbar.LENGTH_LONG).show();
         } catch (IOException e) {
