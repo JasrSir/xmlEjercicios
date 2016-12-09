@@ -27,7 +27,7 @@ public class Analisis {
         this.context = context;
     }
 
-  public static String[] analizarEmpleados(XmlResourceParser xmlEmpleados) throws XmlPullParserException, IOException {
+    public static String[] analizarEmpleados(XmlResourceParser xmlEmpleados) throws XmlPullParserException, IOException {
 
       String[] analisisEmpleados = {"","","","",""};//0=nombres, 1=Edadmedia,2="salMini",3=salMax, 4=salMed
       Double edadmedia = 0.0;
@@ -86,42 +86,6 @@ public class Analisis {
       return analisisEmpleados;
   }
 
-
-    /**
-
-    public static String analizarRSS(File file) throws NullPointerException, XmlPullParserException, IOException
-    {
-        boolean dentroItem = false;
-        boolean dentroTitle = false;
-
-        StringBuilder builder = new StringBuilder();
-        XmlPullParser xpp = Xml.newPullParser();
-        xpp.setInput(new FileReader(file));
-        int eventType = xpp.getEventType();
-
-        while (eventType != XmlPullParser.END_DOCUMENT) {
-            switch (eventType) {
-                case XmlPullParser.START_TAG:
-                    if (xpp.getName().equals("item"))
-                        dentroItem = true;
-                    if (xpp.getName().equals("title")&&dentroItem)
-                       // dentroTitle = true;
-                        builder.append("El titulo es ->"+xpp.nextText()+"\n");
-                    break;
-               *//* case XmlPullParser.TEXT:
-                    builder.append(xpp.getText()+"\n");
-                    break;*//*
-                case XmlPullParser.END_TAG:
-                   *//* if (xpp.getName().equals("item"))
-                        dentroItem = false;*//*
-                    if (xpp.getName().equals("title")&&dentroItem)
-                        dentroTitle = false;
-                    break;
-            }
-            eventType = xpp.next();
-        }
-        return builder.toString();
-    }*/
     public static ArrayList<Weather> analizarTiempo(File file) throws XmlPullParserException, IOException {
         int eventType;
 
@@ -272,6 +236,11 @@ public class Analisis {
                             hoyT[3].setEstadoCielo(atributo);
                             hoyT[3].setImagen(xpp.nextText());
                         }
+                        //Temperaturas
+                        if (xpp.getName().equals("temperatura")&& dentrohoy ) {
+                            dentroTemp = true;
+                        }
+
                         //temperaturas
                         if (xpp.getName().equals("maxima")&& dentrohoy && dentroTemp) {
                             String maxima = xpp.nextText();
@@ -323,6 +292,11 @@ public class Analisis {
                             hoyT[3].setImagen(xpp.nextText());
                         }
                         //temperaturas
+                        //Temperaturas
+                        if (xpp.getName().equals("temperatura")&& dentrohoy ) {
+                            dentroTemp = true;
+                        }
+
                         if (xpp.getName().equals("maxima")&& dentrohoy && dentroTemp) {
                             String maxima = xpp.nextText();
                             hoyT[2].setTempMax(maxima);
@@ -360,6 +334,11 @@ public class Analisis {
                            hoyT[3].setImagen(xpp.nextText());
                         }
                         //temperaturas
+                        //Temperaturas
+                        if (xpp.getName().equals("temperatura")&& dentrohoy ) {
+                            dentroTemp = true;
+                        }
+
                         if (xpp.getName().equals("maxima")&& dentrohoy && dentroTemp) {
                             hoyT[3].setTempMax(xpp.nextText());
                         }
@@ -577,5 +556,4 @@ public class Analisis {
 
         return noticias;
     }
-
     }
